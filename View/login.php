@@ -9,6 +9,7 @@
 
         <form method="post" action="index.php" class="form-grid">
             <input type="hidden" name="action" value="login">
+            <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>">
 
             <label>
                 Email address
