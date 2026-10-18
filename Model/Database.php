@@ -18,7 +18,8 @@ class Database
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
             ]);
             return $pdo;
-        } catch (Throwable $e) {
+        } catch (PDOException $e) {
+            error_log('AIUB Career Connect database connection failed: ' . $e->getMessage());
             return null;
         }
     }
