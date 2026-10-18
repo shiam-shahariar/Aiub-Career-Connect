@@ -11,6 +11,7 @@ unset($_SESSION['flashMessage'], $_SESSION['flashSuccess'], $_SESSION['flashOver
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AIUB Career Connect</title>
+    <link rel="icon" type="image/png" href="Assets/American International University Bangladesh Seal.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -36,6 +37,7 @@ unset($_SESSION['flashMessage'], $_SESSION['flashSuccess'], $_SESSION['flashOver
                     <a href="index.php?page=home">Home</a>
                     <a href="index.php?page=opportunities">Jobs &amp; Internships</a>
                     <a href="index.php?page=alumni">Alumni Directory</a>
+                    <a href="index.php?page=companies">Companies</a>
                     <a href="index.php?page=dashboard">Dashboard</a>
                     <?php if ($currentUser && $currentUser['role'] === 'admin'): ?>
                         <a href="index.php?page=admin">Admin</a>
@@ -48,6 +50,7 @@ unset($_SESSION['flashMessage'], $_SESSION['flashSuccess'], $_SESSION['flashOver
                             <span><?php echo htmlspecialchars($currentUser['name']); ?></span>
                             <form method="post" action="index.php">
                                 <input type="hidden" name="action" value="logout">
+                                <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>">
                                 <button type="submit" class="btn btn--ghost">Logout</button>
                             </form>
                         </div>
