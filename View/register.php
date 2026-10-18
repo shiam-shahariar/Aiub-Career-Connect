@@ -9,6 +9,7 @@
 
         <form method="post" action="index.php" class="form-grid two-col">
             <input type="hidden" name="action" value="register">
+            <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>">
 
             <label>
                 Full name
