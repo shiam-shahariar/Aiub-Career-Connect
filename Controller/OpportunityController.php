@@ -17,7 +17,7 @@ class OpportunityController
         $results = [];
 
         foreach ($this->repository->getOpportunities() as $opportunity) {
-            if ($opportunity['status'] !== 'published') {
+            if ($opportunity['status'] !== 'published' || $opportunity['deadline'] < date('Y-m-d')) {
                 continue;
             }
 
