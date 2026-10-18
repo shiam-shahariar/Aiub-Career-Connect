@@ -48,7 +48,7 @@
     <div class="dashboard-grid">
         <div class="panel">
             <h3>Recommended opportunities</h3>
-            <?php foreach (array_slice($repository->getOpportunities(), 0, 3) as $opportunity): ?>
+            <?php foreach (array_slice(array_values(array_filter($repository->getOpportunities(), static fn (array $opportunity): bool => $opportunity['status'] === 'published' && $opportunity['deadline'] >= date('Y-m-d'))), 0, 3) as $opportunity): ?>
                 <div class="profile-item">
                     <div>
                         <strong><?php echo htmlspecialchars($opportunity['title']); ?></strong>
