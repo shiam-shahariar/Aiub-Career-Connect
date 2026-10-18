@@ -1,6 +1,9 @@
 <?php
 require __DIR__ . '/partials/header.php';
-$opportunities = $repository->getOpportunities();
+$opportunities = array_values(array_filter(
+    $repository->getOpportunities(),
+    static fn (array $opportunity): bool => $opportunity['status'] === 'published' && $opportunity['deadline'] >= date('Y-m-d')
+));
 ?>
 <section class="section container">
     <div class="page-header">
@@ -38,8 +41,10 @@ $opportunities = $repository->getOpportunities();
     </div>
 
     <div id="opportunity-results" class="listing-grid">
+        <?php if (!$opportunities): ?>
+            <div class="message-panel"><h2>No active opportunities</h2><p>Check back later for current internships and jobs.</p></div>
+        <?php endif; ?>
         <?php foreach ($opportunities as $opportunity): ?>
-            <?php if ($opportunity['status'] !== 'published') continue; ?>
             <article class="listing-card">
                 <div class="listing-card__meta">
                     <span class="badge badge--soft"><?php echo htmlspecialchars($opportunity['type']); ?></span>
