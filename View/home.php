@@ -11,7 +11,7 @@
                 <a href="index.php?page=register" class="btn btn--secondary">Create profile</a>
             </div>
             <ul class="hero-stats">
-                <li><strong><?php echo htmlspecialchars($stats['student_profiles'] * 120); ?>+</strong><span>Student profiles</span></li>
+                <li><strong><?php echo htmlspecialchars($stats['student_profiles']); ?></strong><span>Student profiles</span></li>
                 <li><strong><?php echo htmlspecialchars($stats['verified_alumni']); ?>+</strong><span>Alumni mentors</span></li>
                 <li><strong><?php echo htmlspecialchars($stats['published_opportunities']); ?>+</strong><span>Active listings</span></li>
             </ul>
@@ -53,7 +53,7 @@
             </div>
             <div class="mini-panel">
                 <h3>Featured roles</h3>
-                <?php foreach (array_slice($repository->getOpportunities(), 0, 3) as $opportunity): ?>
+                <?php foreach (array_slice(array_values(array_filter($repository->getOpportunities(), static fn (array $opportunity): bool => $opportunity['status'] === 'published' && $opportunity['deadline'] >= date('Y-m-d'))), 0, 3) as $opportunity): ?>
                     <div class="listing-mini">
                         <span><?php echo htmlspecialchars($opportunity['type']); ?></span>
                         <strong><?php echo htmlspecialchars($opportunity['title']); ?></strong>
