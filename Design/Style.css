@@ -631,6 +631,163 @@ textarea { resize: vertical; }
     padding: 24px 22px;
 }
 
+.directory-filter-form {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
+.company-filter-form {
+    grid-template-columns: 2fr 1fr 1fr auto;
+    align-items: end;
+}
+
+.directory-filter-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.directory-filter-actions .btn {
+    min-height: 48px;
+}
+
+.contact-note {
+    align-self: center;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.report-profile {
+    flex: 1 1 100%;
+    margin-top: 6px;
+}
+
+.report-profile summary {
+    color: var(--aiub-navy);
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.report-profile form {
+    margin-top: 14px;
+}
+
+.company-card h2 {
+    margin: 14px 0 4px;
+    font-size: 1.3rem;
+}
+
+.company-alumni-count {
+    margin-top: auto;
+    padding-top: 14px;
+}
+
+.company-detail-panel {
+    margin-bottom: 32px;
+}
+
+.company-alumni-heading {
+    margin-top: 30px;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 28px;
+}
+
+.privacy-panel {
+    margin-top: 24px;
+}
+
+.admin-section {
+    margin-top: 24px;
+}
+
+.admin-section h2 {
+    margin: 0 0 16px;
+}
+
+.admin-inline-form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 360px;
+}
+
+.admin-inline-form input,
+.admin-inline-form select {
+    width: auto;
+    min-width: 110px;
+    min-height: 44px;
+    padding: 8px 10px;
+}
+
+.admin-inline-form input {
+    flex: 1 1 150px;
+}
+
+.admin-inline-form .btn {
+    flex: 0 0 auto;
+    min-height: 44px;
+    padding: 8px 12px;
+}
+
+.admin-company-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.company-admin-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: end;
+    gap: 14px;
+    padding: 18px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+.company-create-form {
+    margin-bottom: 22px;
+}
+
+.company-admin-form h3,
+.company-admin-form .full-width {
+    grid-column: 1 / -1;
+}
+
+.company-admin-form h3 {
+    margin: 0;
+}
+
+.company-admin-form h3 small {
+    display: block;
+    margin-top: 4px;
+    color: var(--muted);
+    font-weight: 500;
+}
+
+.company-admin-form .btn {
+    justify-self: start;
+}
+
+.merge-company-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) auto;
+    align-items: end;
+    gap: 14px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+}
+
 .directory-card__top {
     display: flex;
     align-items: flex-start;
@@ -914,6 +1071,16 @@ body.device-preview--normal .page-shell { max-width: none; }
     .footer-grid {
         grid-template-columns: 1fr 1fr;
     }
+
+    .directory-filter-form,
+    .company-filter-form,
+    .admin-company-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .directory-filter-actions {
+        align-self: end;
+    }
 }
 
 @container page-shell (max-width: 720px) {
@@ -975,6 +1142,31 @@ body.device-preview--normal .page-shell { max-width: none; }
     .footer-grid,
     .form-grid.two-col {
         grid-template-columns: 1fr;
+    }
+
+    .directory-filter-form,
+    .company-filter-form,
+    .admin-company-list,
+    .company-admin-form,
+    .merge-company-form {
+        grid-template-columns: 1fr;
+    }
+
+    .directory-filter-actions {
+        align-items: stretch;
+    }
+
+    .directory-filter-actions .btn {
+        flex: 1 1 auto;
+    }
+
+    .company-admin-form h3,
+    .company-admin-form .full-width {
+        grid-column: auto;
+    }
+
+    .pagination {
+        flex-wrap: wrap;
     }
 
     .auth-actions,
