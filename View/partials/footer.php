@@ -12,6 +12,7 @@
                         <li><a href="index.php?page=home">Home</a></li>
                         <li><a href="index.php?page=opportunities">Opportunities</a></li>
                         <li><a href="index.php?page=alumni">Alumni Directory</a></li>
+                        <li><a href="index.php?page=companies">Company Directory</a></li>
                     </ul>
                 </div>
                 <div>
